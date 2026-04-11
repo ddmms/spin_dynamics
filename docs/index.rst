@@ -14,9 +14,9 @@ Overview
 spindynam is a Python package for coupled spin-lattice dynamics simulations 
 using the Atomic Simulation Environment (ASE). 
 
-**Reference Paper**: :download:`Download the Tranchida et al. (2018) Paper <spin_dynamics.pdf>`
+**Reference Paper**: :download:`Tranchida et al., J. Comput. Phys. 372 (2018) 406-425  <spin_dynamics.pdf>`
 
-It implements the symplectic integration algorithm and equations of motion 
+It implements the symplectic integration algorithm and equations of motion
 described in **Tranchida et al., J. Comput. Phys. 372 (2018) 406-425**.
 
 Key Features:
