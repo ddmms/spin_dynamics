@@ -88,7 +88,7 @@ and magnetic contributions (Equation 7):
 
 .. math::
 
-   \mathbf{F}_i = - \nabla_{\mathbf{r}_i} \sum_{j \neq i} V(r_{ij}) + \sum_{j \neq i} \frac{d J}{d r_{ij}} \frac{\mathbf{r}_{ij}}{r_{ij}} (\mathbf{s}_i \cdot \mathbf{s}_j)
+   \mathbf{F}_i = - \frac{\partial \mathcal{H}_{sl}}{\partial \mathbf{r}_i} = - \nabla_{\mathbf{r}_i} \sum_{j < k} V(r_{jk}) + \sum_{j \neq i} \frac{\partial J(r_{ij})}{\partial \mathbf{r}_i} (\mathbf{s}_i \cdot \mathbf{s}_j)
 
 The magnetic effective field :math:`\boldsymbol{\omega}_i` (or torque) acting on 
 spin :math:`i` is defined as (Equation 8):
