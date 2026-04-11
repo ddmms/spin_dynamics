@@ -11,19 +11,19 @@ authors = [
 ]
 license = { text = "BSD-3-Clause" }
 dependencies = [
-    "ase>=3.22.0",
+    "ase>=3.28.0",
     "numpy",
+    "pytest",
 ]
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.10"
 
 [dependency-groups]
 dev = [
-    "pytest",
-    "sphinx == 7.2.6",
-    "sphinx-immaterial == 0.13.9",
+    "sphinx >= 7.2.6",
+    "sphinx-immaterial >= 0.13.9",
     "myst-parser",
 ]
 
 [project.scripts]
-spin-dynamics-run = "spindynam.cli:main"
+spin-dynamics = "spindynam.cli:main"

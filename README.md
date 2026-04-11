@@ -5,11 +5,11 @@ Coupled Spin-Lattice Dynamics for ASE.
 ## Installation
 
 ```bash
-uv pip install -e .
+uv sync
 ```
 
 ## Usage
 
 ```bash
-spin-dynamics-run --input structure.xyz --steps 1000
+uv run spin-dynamics --input structure.xyz --steps 1000
 ```
