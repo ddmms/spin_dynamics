@@ -41,7 +41,7 @@ max-complexity = 5
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = ["test_*.py"]
-addopts = "--cov=spindynam --cov-report=term-missing --cov-report=xml"
+addopts = "--cov=spindynam --cov-report=term-missing --cov-report=lcov"
 
 [project.scripts]
 spin-dynamics-run = "spindynam.cli:main"
