@@ -6,7 +6,7 @@
 
 Coupled Spin-Lattice Dynamics for ASE based on Tranchida et al. (2018).
 
-[**Read the Documentation**](https://ddmms.github.io/spin_dybamics/)
+[**Read the Documentation**](https://ddmms.github.io/spin_dynamics/)
 
 ## Installation
 
