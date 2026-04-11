@@ -17,5 +17,10 @@ dependencies = [
 readme = "README.md"
 requires-python = ">=3.8"
 
+[dependency-groups]
+dev = [
+    "pytest",
+]
+
 [project.scripts]
 spin-dynamics-run = "spindynam.cli:main"
