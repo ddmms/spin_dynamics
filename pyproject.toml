@@ -7,11 +7,11 @@ name = "spindynam"
 version = "0.1.0"
 description = "Coupled Spin-Lattice Dynamics for ASE"
 authors = [
-    { name = "Antigravity", email = "antigravity@example.com" }
+    { name = "Alin M Elena", email = "[EMAIL_ADDRESS]" }
 ]
 license = { text = "BSD-3-Clause" }
 dependencies = [
-    "ase>=3.28.0",
+    "ase>=3.22.0",
     "numpy",
     "pytest",
 ]
@@ -26,4 +26,4 @@ dev = [
 ]
 
 [project.scripts]
-spin-dynamics = "spindynam.cli:main"
+spin-dynamics-run = "spindynam.cli:main"
