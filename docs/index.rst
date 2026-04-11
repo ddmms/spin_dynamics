@@ -11,7 +11,7 @@ Welcome to spindynam's documentation!
 Overview
 --------
 
-** this is vibe coding experiment, do not use it for production **
+**this is vibe coding experiment, do not use it for production**
 
 spindynam is a Python package for coupled spin-lattice dynamics simulations
 using the Atomic Simulation Environment (ASE).

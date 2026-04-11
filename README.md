@@ -7,7 +7,7 @@
 
 Coupled Spin-Lattice Dynamics for ASE based on Tranchida et al. (2018).
 
-** this is vibe coding experiment, do not use it for production **
+**this is vibe coding experiment, do not use it for production**
 
 [**Read the Documentation**](https://ddmms.github.io/spin_dybamics/)
 
