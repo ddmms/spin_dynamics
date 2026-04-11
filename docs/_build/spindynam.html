@@ -1,0 +1,329 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>spindynam package &mdash; spindynam 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=01f34227"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="spindynam" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            spindynam
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">spindynam</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">spindynam package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-spindynam.calculator">spindynam.calculator module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#spindynam.calculator.SpinLatticeHeisenberg"><code class="docutils literal notranslate"><span class="pre">SpinLatticeHeisenberg</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-spindynam.cli">spindynam.cli module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#spindynam.cli.main"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-spindynam.dynamics">spindynam.dynamics module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#spindynam.dynamics.SpinLatticeDynamics"><code class="docutils literal notranslate"><span class="pre">SpinLatticeDynamics</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-spindynam">Module contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#spindynam.SpinLatticeDynamics"><code class="docutils literal notranslate"><span class="pre">SpinLatticeDynamics</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#spindynam.SpinLatticeHeisenberg"><code class="docutils literal notranslate"><span class="pre">SpinLatticeHeisenberg</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">spindynam</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">spindynam</a></li>
+      <li class="breadcrumb-item active">spindynam package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/spindynam.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="spindynam-package">
+<h1>spindynam package<a class="headerlink" href="#spindynam-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-spindynam.calculator">
+<span id="spindynam-calculator-module"></span><h2>spindynam.calculator module<a class="headerlink" href="#module-spindynam.calculator" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="spindynam.calculator.SpinLatticeHeisenberg">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">spindynam.calculator.</span></span><span class="sig-name descname"><span class="pre">SpinLatticeHeisenberg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spindynam/calculator.html#SpinLatticeHeisenberg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spindynam.calculator.SpinLatticeHeisenberg" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Calculator</span></code></p>
+<p>Coupled spin-lattice Heisenberg calculator.</p>
+<p>Implements the total spin-lattice Hamiltonian (Equation 4):
+H_sl = H_mag + sum_i p_i^2 / (2m_i) + sum_{i&lt;j} V(r_ij)</p>
+<p>Where the magnetic Hamiltonian H_mag is (Equation 3):
+H_mag = -mu_B * mu_0 * sum_i g_i s_i . H_ext - sum_{i&lt;j} J(r_ij) s_i . s_j</p>
+<p>And the mechanical potential V(r) is a harmonic well:
+V(r) = 0.5 * K * (r - r0)^2</p>
+<p>The exchange J(r) follows an exponential decay:
+J(r) = J0 * exp(-alpha * (r/r0 - 1))</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="spindynam.calculator.SpinLatticeHeisenberg.calculate">
+<span class="sig-name descname"><span class="pre">calculate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">properties</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['energy']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">system_changes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['positions',</span> <span class="pre">'numbers',</span> <span class="pre">'cell',</span> <span class="pre">'pbc',</span> <span class="pre">'initial_charges',</span> <span class="pre">'initial_magmoms']</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spindynam/calculator.html#SpinLatticeHeisenberg.calculate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spindynam.calculator.SpinLatticeHeisenberg.calculate" title="Link to this definition"></a></dt>
+<dd><p>Do the calculation.</p>
+<dl class="simple">
+<dt>properties: list of str</dt><dd><p>List of what needs to be calculated.  Can be any combination
+of ‘energy’, ‘forces’, ‘stress’, ‘dipole’, ‘charges’, ‘magmom’
+and ‘magmoms’.</p>
+</dd>
+<dt>system_changes: list of str</dt><dd><p>List of what has changed since last calculation.  Can be
+any combination of these six: ‘positions’, ‘numbers’, ‘cell’,
+‘pbc’, ‘initial_charges’ and ‘initial_magmoms’.</p>
+</dd>
+</dl>
+<p>Subclasses need to implement this, but can ignore properties
+and system_changes if they want.  Calculated properties should
+be inserted into results dictionary like shown in this dummy
+example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;energy&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+                <span class="s1">&#39;forces&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">atoms</span><span class="p">),</span> <span class="mi">3</span><span class="p">)),</span>
+                <span class="s1">&#39;stress&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span>
+                <span class="s1">&#39;dipole&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
+                <span class="s1">&#39;charges&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">atoms</span><span class="p">)),</span>
+                <span class="s1">&#39;magmom&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+                <span class="s1">&#39;magmoms&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">atoms</span><span class="p">))}</span>
+</pre></div>
+</div>
+<p>The subclass implementation should first call this
+implementation to set the atoms attribute and create any missing
+directories.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="spindynam.calculator.SpinLatticeHeisenberg.default_parameters">
+<span class="sig-name descname"><span class="pre">default_parameters</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'H_ext':</span> <span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0),</span> <span class="pre">'J0':</span> <span class="pre">0.1,</span> <span class="pre">'K':</span> <span class="pre">10.0,</span> <span class="pre">'alpha':</span> <span class="pre">2.0,</span> <span class="pre">'g_i':</span> <span class="pre">2.0,</span> <span class="pre">'hbar':</span> <span class="pre">0.6582119569,</span> <span class="pre">'r0':</span> <span class="pre">2.5}</span></span><a class="headerlink" href="#spindynam.calculator.SpinLatticeHeisenberg.default_parameters" title="Link to this definition"></a></dt>
+<dd><p>Default parameters</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spindynam.calculator.SpinLatticeHeisenberg.get_magnetic_forces">
+<span class="sig-name descname"><span class="pre">get_magnetic_forces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spindynam/calculator.html#SpinLatticeHeisenberg.get_magnetic_forces"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spindynam.calculator.SpinLatticeHeisenberg.get_magnetic_forces" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="spindynam.calculator.SpinLatticeHeisenberg.implemented_properties">
+<span class="sig-name descname"><span class="pre">implemented_properties</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['energy',</span> <span class="pre">'forces',</span> <span class="pre">'magnetic_forces',</span> <span class="pre">'mag_energy']</span></span><a class="headerlink" href="#spindynam.calculator.SpinLatticeHeisenberg.implemented_properties" title="Link to this definition"></a></dt>
+<dd><p>Properties calculator can handle (energy, forces, …)</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-spindynam.cli">
+<span id="spindynam-cli-module"></span><h2>spindynam.cli module<a class="headerlink" href="#module-spindynam.cli" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="spindynam.cli.main">
+<span class="sig-prename descclassname"><span class="pre">spindynam.cli.</span></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/spindynam/cli.html#main"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spindynam.cli.main" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+<section id="module-spindynam.dynamics">
+<span id="spindynam-dynamics-module"></span><h2>spindynam.dynamics module<a class="headerlink" href="#module-spindynam.dynamics" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="spindynam.dynamics.SpinLatticeDynamics">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">spindynam.dynamics.</span></span><span class="sig-name descname"><span class="pre">SpinLatticeDynamics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestep</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trajectory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loginterval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">append_trajectory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spindynam/dynamics.html#SpinLatticeDynamics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spindynam.dynamics.SpinLatticeDynamics" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MolecularDynamics</span></code></p>
+<p>Coupled Spin-Lattice Dynamics integrator.</p>
+<p>Following Tranchida et al., J. Comput. Phys. 372 (2018) 406-425.</p>
+<p>The integrator solves the Equations of Motion (Equations 6, 7, and 8)
+derived from the spin-lattice Hamiltonian (Equation 4) using the
+specified Poisson bracket (Equation 5).</p>
+<p>The algorithm uses a second-order symmetric Suzuki-Trotter decomposition
+(Equation 13):
+exp(L_p*dt/2) exp(L_s*dt/2) exp(L_r*dt) exp(L_s*dt/2) exp(L_p*dt/2)</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="spindynam.dynamics.SpinLatticeDynamics.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">forces</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spindynam/dynamics.html#SpinLatticeDynamics.step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spindynam.dynamics.SpinLatticeDynamics.step" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spindynam.dynamics.SpinLatticeDynamics.update_spins">
+<span class="sig-name descname"><span class="pre">update_spins</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spindynam/dynamics.html#SpinLatticeDynamics.update_spins"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spindynam.dynamics.SpinLatticeDynamics.update_spins" title="Link to this definition"></a></dt>
+<dd><p>Update spins using a symmetric sequential update (Suzuki-Trotter).</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-spindynam">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-spindynam" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="spindynam.SpinLatticeDynamics">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">spindynam.</span></span><span class="sig-name descname"><span class="pre">SpinLatticeDynamics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timestep</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trajectory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loginterval</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">append_trajectory</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spindynam/dynamics.html#SpinLatticeDynamics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spindynam.SpinLatticeDynamics" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">MolecularDynamics</span></code></p>
+<p>Coupled Spin-Lattice Dynamics integrator.</p>
+<p>Following Tranchida et al., J. Comput. Phys. 372 (2018) 406-425.</p>
+<p>The integrator solves the Equations of Motion (Equations 6, 7, and 8)
+derived from the spin-lattice Hamiltonian (Equation 4) using the
+specified Poisson bracket (Equation 5).</p>
+<p>The algorithm uses a second-order symmetric Suzuki-Trotter decomposition
+(Equation 13):
+exp(L_p*dt/2) exp(L_s*dt/2) exp(L_r*dt) exp(L_s*dt/2) exp(L_p*dt/2)</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="spindynam.SpinLatticeDynamics.step">
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">forces</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spindynam/dynamics.html#SpinLatticeDynamics.step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spindynam.SpinLatticeDynamics.step" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spindynam.SpinLatticeDynamics.update_spins">
+<span class="sig-name descname"><span class="pre">update_spins</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spindynam/dynamics.html#SpinLatticeDynamics.update_spins"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spindynam.SpinLatticeDynamics.update_spins" title="Link to this definition"></a></dt>
+<dd><p>Update spins using a symmetric sequential update (Suzuki-Trotter).</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="spindynam.SpinLatticeHeisenberg">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">spindynam.</span></span><span class="sig-name descname"><span class="pre">SpinLatticeHeisenberg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spindynam/calculator.html#SpinLatticeHeisenberg"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spindynam.SpinLatticeHeisenberg" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Calculator</span></code></p>
+<p>Coupled spin-lattice Heisenberg calculator.</p>
+<p>Implements the total spin-lattice Hamiltonian (Equation 4):
+H_sl = H_mag + sum_i p_i^2 / (2m_i) + sum_{i&lt;j} V(r_ij)</p>
+<p>Where the magnetic Hamiltonian H_mag is (Equation 3):
+H_mag = -mu_B * mu_0 * sum_i g_i s_i . H_ext - sum_{i&lt;j} J(r_ij) s_i . s_j</p>
+<p>And the mechanical potential V(r) is a harmonic well:
+V(r) = 0.5 * K * (r - r0)^2</p>
+<p>The exchange J(r) follows an exponential decay:
+J(r) = J0 * exp(-alpha * (r/r0 - 1))</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="spindynam.SpinLatticeHeisenberg.calculate">
+<span class="sig-name descname"><span class="pre">calculate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">properties</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['energy']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">system_changes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['positions',</span> <span class="pre">'numbers',</span> <span class="pre">'cell',</span> <span class="pre">'pbc',</span> <span class="pre">'initial_charges',</span> <span class="pre">'initial_magmoms']</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spindynam/calculator.html#SpinLatticeHeisenberg.calculate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spindynam.SpinLatticeHeisenberg.calculate" title="Link to this definition"></a></dt>
+<dd><p>Do the calculation.</p>
+<dl class="simple">
+<dt>properties: list of str</dt><dd><p>List of what needs to be calculated.  Can be any combination
+of ‘energy’, ‘forces’, ‘stress’, ‘dipole’, ‘charges’, ‘magmom’
+and ‘magmoms’.</p>
+</dd>
+<dt>system_changes: list of str</dt><dd><p>List of what has changed since last calculation.  Can be
+any combination of these six: ‘positions’, ‘numbers’, ‘cell’,
+‘pbc’, ‘initial_charges’ and ‘initial_magmoms’.</p>
+</dd>
+</dl>
+<p>Subclasses need to implement this, but can ignore properties
+and system_changes if they want.  Calculated properties should
+be inserted into results dictionary like shown in this dummy
+example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">results</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;energy&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+                <span class="s1">&#39;forces&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">atoms</span><span class="p">),</span> <span class="mi">3</span><span class="p">)),</span>
+                <span class="s1">&#39;stress&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span>
+                <span class="s1">&#39;dipole&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span>
+                <span class="s1">&#39;charges&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">atoms</span><span class="p">)),</span>
+                <span class="s1">&#39;magmom&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span>
+                <span class="s1">&#39;magmoms&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">atoms</span><span class="p">))}</span>
+</pre></div>
+</div>
+<p>The subclass implementation should first call this
+implementation to set the atoms attribute and create any missing
+directories.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="spindynam.SpinLatticeHeisenberg.default_parameters">
+<span class="sig-name descname"><span class="pre">default_parameters</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'H_ext':</span> <span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0),</span> <span class="pre">'J0':</span> <span class="pre">0.1,</span> <span class="pre">'K':</span> <span class="pre">10.0,</span> <span class="pre">'alpha':</span> <span class="pre">2.0,</span> <span class="pre">'g_i':</span> <span class="pre">2.0,</span> <span class="pre">'hbar':</span> <span class="pre">0.6582119569,</span> <span class="pre">'r0':</span> <span class="pre">2.5}</span></span><a class="headerlink" href="#spindynam.SpinLatticeHeisenberg.default_parameters" title="Link to this definition"></a></dt>
+<dd><p>Default parameters</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="spindynam.SpinLatticeHeisenberg.get_magnetic_forces">
+<span class="sig-name descname"><span class="pre">get_magnetic_forces</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">atoms</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/spindynam/calculator.html#SpinLatticeHeisenberg.get_magnetic_forces"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#spindynam.SpinLatticeHeisenberg.get_magnetic_forces" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="spindynam.SpinLatticeHeisenberg.implemented_properties">
+<span class="sig-name descname"><span class="pre">implemented_properties</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">['energy',</span> <span class="pre">'forces',</span> <span class="pre">'magnetic_forces',</span> <span class="pre">'mag_energy']</span></span><a class="headerlink" href="#spindynam.SpinLatticeHeisenberg.implemented_properties" title="Link to this definition"></a></dt>
+<dd><p>Properties calculator can handle (energy, forces, …)</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="spindynam" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Antigravity and the spindynam developers.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

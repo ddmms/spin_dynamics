@@ -1,0 +1,236 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>spindynam.dynamics &mdash; spindynam 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            spindynam
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../modules.html">spindynam</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">spindynam</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">spindynam.dynamics</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for spindynam.dynamics</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ase.md.md</span><span class="w"> </span><span class="kn">import</span> <span class="n">MolecularDynamics</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ase.units</span><span class="w"> </span><span class="kn">import</span> <span class="n">fs</span>
+
+<div class="viewcode-block" id="SpinLatticeDynamics">
+<a class="viewcode-back" href="../../spindynam.html#spindynam.dynamics.SpinLatticeDynamics">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">SpinLatticeDynamics</span><span class="p">(</span><span class="n">MolecularDynamics</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Coupled Spin-Lattice Dynamics integrator.</span>
+<span class="sd">    </span>
+<span class="sd">    Following Tranchida et al., J. Comput. Phys. 372 (2018) 406-425.</span>
+<span class="sd">    </span>
+<span class="sd">    The integrator solves the Equations of Motion (Equations 6, 7, and 8)</span>
+<span class="sd">    derived from the spin-lattice Hamiltonian (Equation 4) using the </span>
+<span class="sd">    specified Poisson bracket (Equation 5).</span>
+<span class="sd">    </span>
+<span class="sd">    The algorithm uses a second-order symmetric Suzuki-Trotter decomposition </span>
+<span class="sd">    (Equation 13):</span>
+<span class="sd">    exp(L_p*dt/2) exp(L_s*dt/2) exp(L_r*dt) exp(L_s*dt/2) exp(L_p*dt/2)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">atoms</span><span class="p">,</span> <span class="n">timestep</span><span class="p">,</span> <span class="n">trajectory</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">logfile</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+                 <span class="n">loginterval</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">append_trajectory</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">MolecularDynamics</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">atoms</span><span class="p">,</span> <span class="n">timestep</span><span class="p">,</span> <span class="n">trajectory</span><span class="p">,</span> <span class="n">logfile</span><span class="p">,</span>
+                                    <span class="n">loginterval</span><span class="p">,</span> <span class="n">append_trajectory</span><span class="o">=</span><span class="n">append_trajectory</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        
+        <span class="c1"># Check if spins are available</span>
+        <span class="k">if</span> <span class="s1">&#39;spins&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">arrays</span><span class="p">:</span>
+            <span class="c1"># Initialize with magmoms if available, otherwise zeros</span>
+            <span class="n">magmoms</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">get_initial_magnetic_moments</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">magmoms</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="c1"># Assuming z-aligned spins if only scalars provided</span>
+                <span class="n">spins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">atoms</span><span class="p">),</span> <span class="mi">3</span><span class="p">))</span>
+                <span class="n">spins</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">magmoms</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">spins</span> <span class="o">=</span> <span class="n">magmoms</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">set_array</span><span class="p">(</span><span class="s1">&#39;spins&#39;</span><span class="p">,</span> <span class="n">spins</span><span class="p">)</span>
+            
+<div class="viewcode-block" id="SpinLatticeDynamics.step">
+<a class="viewcode-back" href="../../spindynam.html#spindynam.dynamics.SpinLatticeDynamics.step">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">forces</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">atoms</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">atoms</span>
+        <span class="n">dt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span>
+        
+        <span class="c1"># 1. Apply exp(L_p * dt/2): update momenta</span>
+        <span class="k">if</span> <span class="n">forces</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">forces</span> <span class="o">=</span> <span class="n">atoms</span><span class="o">.</span><span class="n">get_forces</span><span class="p">(</span><span class="n">md</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">atoms</span><span class="o">.</span><span class="n">get_momenta</span><span class="p">()</span>
+        <span class="n">p</span> <span class="o">+=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">forces</span>
+        <span class="n">atoms</span><span class="o">.</span><span class="n">set_momenta</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+        
+        <span class="c1"># 2. Apply exp(L_s * dt/2): update spins</span>
+        <span class="c1"># We need effective fields omega_i</span>
+        <span class="c1"># Calculator should provide &#39;magnetic_forces&#39; or &#39;effective_fields&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_spins</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">dt</span><span class="p">)</span>
+        
+        <span class="c1"># 3. Apply exp(L_r * dt): update positions</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">atoms</span><span class="o">.</span><span class="n">get_positions</span><span class="p">()</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">atoms</span><span class="o">.</span><span class="n">get_masses</span><span class="p">()[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+        <span class="c1"># p is already updated to t + dt/2</span>
+        <span class="n">r_new</span> <span class="o">=</span> <span class="n">r</span> <span class="o">+</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">p</span> <span class="o">/</span> <span class="n">m</span>
+        <span class="n">atoms</span><span class="o">.</span><span class="n">set_positions</span><span class="p">(</span><span class="n">r_new</span><span class="p">)</span>
+        
+        <span class="c1"># 4. Apply exp(L_s * dt/2): update spins (with new positions)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">update_spins</span><span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">dt</span><span class="p">)</span>
+        
+        <span class="c1"># 5. Apply exp(L_p * dt/2): update momenta</span>
+        <span class="c1"># Need new forces at new positions and spins</span>
+        <span class="n">forces</span> <span class="o">=</span> <span class="n">atoms</span><span class="o">.</span><span class="n">get_forces</span><span class="p">(</span><span class="n">md</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">atoms</span><span class="o">.</span><span class="n">get_momenta</span><span class="p">()</span>
+        <span class="n">p</span> <span class="o">+=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">dt</span> <span class="o">*</span> <span class="n">forces</span>
+        <span class="n">atoms</span><span class="o">.</span><span class="n">set_momenta</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="n">forces</span></div>
+
+
+<div class="viewcode-block" id="SpinLatticeDynamics.update_spins">
+<a class="viewcode-back" href="../../spindynam.html#spindynam.dynamics.SpinLatticeDynamics.update_spins">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">update_spins</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dt</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Update spins using a symmetric sequential update (Suzuki-Trotter).&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">calc</span><span class="p">,</span> <span class="s1">&#39;get_magnetic_forces&#39;</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Calculator must implement get_magnetic_forces for spin dynamics&quot;</span><span class="p">)</span>
+        
+        <span class="n">natoms</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">atoms</span><span class="p">)</span>
+        <span class="n">dt_fs</span> <span class="o">=</span> <span class="n">dt</span> <span class="o">/</span> <span class="n">fs</span>
+        
+        <span class="c1"># We perform a symmetric sequence of updates to preserve symplecticity/reversibility</span>
+        <span class="c1"># i.e., exp(L_s1*dt/2) ... exp(L_sN*dt) ... exp(L_s1*dt/2)</span>
+        <span class="c1"># For simplicity, we&#39;ll do:</span>
+        <span class="c1"># 1. Forward pass: rotate each spin by dt/2</span>
+        <span class="c1"># 2. Backward pass: rotate each spin by dt/2</span>
+        <span class="c1"># We must recalculate effective fields when a neighbor changes.</span>
+        
+        <span class="k">def</span><span class="w"> </span><span class="nf">single_spin_update</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">time_step</span><span class="p">):</span>
+            <span class="c1"># Recalculate omega for this atom (since its neighbors might have moved/changed)</span>
+            <span class="c1"># For this simple implementation, we recalculate all</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">calc</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+            <span class="n">omega</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">calc</span><span class="o">.</span><span class="n">get_magnetic_forces</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">atoms</span><span class="p">)</span>
+            <span class="n">spins</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">get_array</span><span class="p">(</span><span class="s1">&#39;spins&#39;</span><span class="p">)</span>
+            
+            <span class="n">w</span> <span class="o">=</span> <span class="n">omega</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="n">spins</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+            <span class="n">w_norm_sq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">w_norm_sq</span> <span class="o">&gt;</span> <span class="mf">1e-30</span><span class="p">:</span>
+                <span class="c1"># Equation 15: Rational approximation for single-spin propagation</span>
+                <span class="c1"># s(t+dt) = s(t) + [ dt*(w x s) + (dt^2/2)*(w*(w.s) - |w|^2*s) ] / (1 + dt^2*|w|^2/4)</span>
+                
+                <span class="c1"># Precompute terms</span>
+                <span class="n">w_cross_s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+                <span class="n">w_cross_w_cross_s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">w_cross_s</span><span class="p">)</span>
+                
+                <span class="n">denom</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">+</span> <span class="mf">0.25</span> <span class="o">*</span> <span class="n">time_step</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">w_norm_sq</span>
+                
+                <span class="n">delta_s</span> <span class="o">=</span> <span class="p">(</span><span class="n">time_step</span> <span class="o">*</span> <span class="n">w_cross_s</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">time_step</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">w_cross_w_cross_s</span><span class="p">)</span> <span class="o">/</span> <span class="n">denom</span>
+                
+                <span class="n">s_new</span> <span class="o">=</span> <span class="n">s</span> <span class="o">+</span> <span class="n">delta_s</span>
+                
+                <span class="c1"># Numerical stability: although Eq 15 is norm-preserving, </span>
+                <span class="c1"># we keep the spin normalized to machine precision</span>
+                <span class="c1"># (The paper says it eliminates the need for rescaling, </span>
+                <span class="c1"># but for long trajectories it&#39;s safer)</span>
+                <span class="n">spins</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">s_new</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">s_new</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">set_array</span><span class="p">(</span><span class="s1">&#39;spins&#39;</span><span class="p">,</span> <span class="n">spins</span><span class="p">)</span>
+
+        <span class="c1"># Forward pass (1 to N)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">natoms</span><span class="p">):</span>
+            <span class="n">single_spin_update</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">dt_fs</span><span class="p">)</span>
+            
+        <span class="c1"># Backward pass (N to 1)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">natoms</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">single_spin_update</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">dt_fs</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">calc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">atoms</span><span class="o">.</span><span class="n">calc</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Antigravity and the spindynam developers.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
