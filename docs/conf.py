@@ -1,31 +1,32 @@
 import os
 import sys
-sys.path.insert(0, os.path.abspath('../src'))
+
+sys.path.insert(0, os.path.abspath("../src"))
 
 # Project information
-project = 'spindynam'
-copyright = '2026, Antigravity and the spindynam developers'
-author = 'Antigravity'
-release = '0.1.0'
+project = "spindynam"
+copyright = "2026, Antigravity and the spindynam developers"
+author = "Antigravity"
+release = "0.1.0"
 
 # General configuration
 extensions = [
-    'sphinx_immaterial',
-    'sphinx.ext.autodoc',
-    'sphinx.ext.napoleon',
-    'sphinx.ext.mathjax',
-    'sphinx.ext.viewcode',
-    'myst_parser',
+    "sphinx_immaterial",
+    "sphinx.ext.autodoc",
+    "sphinx.ext.napoleon",
+    "sphinx.ext.mathjax",
+    "sphinx.ext.viewcode",
+    "myst_parser",
 ]
 
-templates_path = ['_templates']
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+templates_path = ["_templates"]
+exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 # HTML output options
-html_static_path = ['_static']
+html_static_path = ["_static"]
 
 # --- Overridden by user preference ---
-html_theme = 'sphinx_immaterial'
+html_theme = "sphinx_immaterial"
 
 html_theme_options = {
     "icon": {
