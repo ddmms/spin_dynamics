@@ -1,6 +1,6 @@
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["uv_build"]
+build-backend = "uv_build"
 
 [project]
 name = "spindynam"
@@ -19,6 +19,3 @@ requires-python = ">=3.8"
 
 [project.scripts]
 spin-dynamics-run = "spindynam.cli:main"
-
-[tool.hatch.build.targets.wheel]
-packages = ["spindynam"]
