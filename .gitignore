@@ -1,0 +1,45 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# ASE and simulations
+*.traj
+*.xyz
+*.cif
+*.json
+*.log
+
+# Environment
+.venv
+venv/
+ENV/
+.env
+
+# PDF and documentation source that shouldn't be in code repo necessarily
+# (Optional: user might want the paper if they specifically asked for it, 
+# but usually it's kept separate. I'll leave it for now if they want it). 
+# Actually, I'll keep spin_dynamics.pdf tracked as it was in the repo.
+
+# OS
+.DS_Store
