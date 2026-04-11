@@ -35,27 +35,27 @@ Functional Forms
 
 The ``SpinLatticeHeisenberg`` calculator utilizes the following functional forms for the interactions:
 
-Exchange Interaction :math:`J(r)`
+Exchange Interaction :math:`J(r_{ij})`
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The exchange coupling follows an exponential decay with distance:
 
 .. math::
 
-   J(r) = J_0 \exp\left[-\alpha \left(\frac{r}{r_0} - 1.0\right)\right]
+   J(r_{ij}) = J_0 \exp\left[-\alpha \left(\frac{r_{ij}}{r_0} - 1.0\right)\right]
 
 Where:
 - :math:`J_0` is the exchange constant at the equilibrium distance :math:`r_0`.
 - :math:`\alpha` is the dimensionless decay parameter.
 
-Atomic Potential :math:`V(r)`
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Atomic Potential :math:`V(r_{ij})`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The interatomic mechanical potential is modeled as a harmonic well:
 
 .. math::
 
-   V(r) = \frac{1}{2} K (r - r_0)^2
+   V(r_{ij}) = \frac{1}{2} K (r_{ij} - r_0)^2
 
 Where:
 - :math:`K` is the spring constant.
