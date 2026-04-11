@@ -30,6 +30,37 @@ Where:
 - :math:`\mathbf{H}_{ext}` is the external magnetic field.
 - :math:`\mu_B` is the Bohr magneton and :math:`g_i` is the Landé g-factor.
 
+Functional Forms
+----------------
+
+The ``SpinLatticeHeisenberg`` calculator utilizes the following functional forms for the interactions:
+
+Exchange Interaction :math:`J(r)`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The exchange coupling follows an exponential decay with distance:
+
+.. math::
+
+   J(r) = J_0 \exp\left[-\alpha \left(\frac{r}{r_0} - 1.0\right)\right]
+
+Where:
+- :math:`J_0` is the exchange constant at the equilibrium distance :math:`r_0`.
+- :math:`\alpha` is the dimensionless decay parameter.
+
+Atomic Potential :math:`V(r)`
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The interatomic mechanical potential is modeled as a harmonic well:
+
+.. math::
+
+   V(r) = \frac{1}{2} K (r - r_0)^2
+
+Where:
+- :math:`K` is the spring constant.
+- :math:`r_0` is the equilibrium distance.
+
 Equations of Motion
 -------------------
 
@@ -87,3 +118,8 @@ Individual spin updates are performed using a norm-preserving rational propagato
 
 This formulation avoids the need for ad-hoc normalization and strictly preserves 
 the spin magnitude throughout the simulation.
+
+References
+----------
+
+* **Tranchida et al.**, *"A symplectic algorithm for coupled atomistic spin-lattice dynamics"*, **Journal of Computational Physics**, 372 (2018) 406-425. `DOI: 10.1016/j.jcp.2018.06.042 <https://doi.org/10.1016/j.jcp.2018.06.042>`_
