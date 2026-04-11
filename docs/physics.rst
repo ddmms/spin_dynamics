@@ -64,15 +64,21 @@ Where:
 Equations of Motion
 -------------------
 
-The time evolution of the system is derived using the Poisson bracket for the 
-coupled spin-lattice phase space (Equation 5), resulting in the following 
-equations of motion (Equation 12):
+The time evolution of any observable :math:`A` in the coupled spin-lattice phase 
+space is governed by the Poisson bracket (Equation 5):
 
 .. math::
 
-   \dot{\mathbf{r}}_i &= \frac{\mathbf{p}_i}{m_i} \\
-   \dot{\mathbf{p}}_i &= \mathbf{F}_i \\
-   \dot{\mathbf{s}}_i &= \boldsymbol{\omega}_i \times \mathbf{s}_i
+   \{F, G\} = \sum_{i=1}^N \left( \frac{\partial F}{\partial \mathbf{r}_i} \cdot \frac{\partial G}{\partial \mathbf{p}_i} - \frac{\partial F}{\partial \mathbf{p}_i} \cdot \frac{\partial G}{\partial \mathbf{r}_i} \right) + \sum_{i=1}^N \frac{\partial F}{\partial \mathbf{s}_i} \cdot \left( \frac{\mathbf{s}_i}{\hbar} \times \frac{\partial G}{\partial \mathbf{s}_i} \right)
+
+The resulting equations of motion for the positions, momenta, and spins are 
+given by (Equation 12):
+
+.. math::
+
+   \dot{\mathbf{r}}_i &= \{\mathbf{r}_i, \mathcal{H}_{sl}\} = \frac{\mathbf{p}_i}{m_i} \\
+   \dot{\mathbf{p}}_i &= \{\mathbf{p}_i, \mathcal{H}_{sl}\} = \mathbf{F}_i \\
+   \dot{\mathbf{s}}_i &= \{\mathbf{s}_i, \mathcal{H}_{sl}\} = \boldsymbol{\omega}_i \times \mathbf{s}_i
 
 Forces and Effective Fields
 ---------------------------
