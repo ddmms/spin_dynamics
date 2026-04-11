@@ -6,6 +6,7 @@ Welcome to spindynam's documentation!
    :caption: Contents:
 
    modules
+   physics
 
 Overview
 --------
