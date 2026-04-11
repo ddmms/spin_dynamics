@@ -20,8 +20,8 @@ requires-python = ">=3.8"
 [dependency-groups]
 dev = [
     "pytest",
-    "sphinx",
-    "sphinx-rtd-theme",
+    "sphinx == 7.2.6",
+    "sphinx-immaterial == 0.13.9",
     "myst-parser",
 ]
 
